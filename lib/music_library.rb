@@ -19,7 +19,10 @@ class MusicLibrary
       @track_list
     end
     
-    def search(keyword) # keyword is a string
-      # Returns a list of tracks that match the keyword
+    def search(keyword) 
+      matching_tracks = []
+      @track_list.flat_map do |item|
+        item.matches?
+      end
     end
   end
