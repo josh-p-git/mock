@@ -16,12 +16,13 @@ describe "Music library" do
         expect(library.all).to eq [["Hello", "Lionel Richie"], ["Hello", "Lionel Richie"]]
     end
 
-    it "adds two tracks then returns all tracks" do
+    it "adds two tracks then returns all tracks matching keyword" do
       track = FakeTrack.new
       library = MusicLibrary.new
       library.add(track)
+      library.add(track)
       keyword = "Lionel"
-      expect(library.search(keyword)).to eq ["Hello", "Lionel Richie"]
+      expect(library.search(keyword)).to eq [["Hello", "Lionel Richie"], ["Hello", "Lionel Richie"]]
   end
 end
 
