@@ -31,22 +31,22 @@ RSpec.describe "doubles" do
       expect { fake_object.speak("Ron") }.to raise_error RSpec::Mocks::MockExpectationError
     end
   
-    xit "sets up doubles that expect to be called" do
+    it "sets up doubles that expect to be called" do
       fake_object = double :animal
       # Write an expectation below that the method "speak" is called with
       # the argument "Steve"
-  
+      expect(fake_object).to receive(:speak).with("Steve")
       # ...
   
       # Don't edit below
       fake_object.speak("Steve")
     end
   
-    xit "creates a double for a specific case" do
+    it "creates a double for a specific case" do
       fake_diary = double :diary, add: nil
       # Set up this double to pass the tests below
       # ...
-  
+        allow(fake_diary).to receive(:count_entries).and_return 2
       # Don't edit below
       fake_diary.add(double :diary_entry)
       fake_diary.add(double :diary_entry)
