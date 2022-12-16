@@ -26,8 +26,6 @@ describe "Music library" do
   end
 end
 
-
-
 class FakeTrack
     def initialize
         @title = 'Hello'
